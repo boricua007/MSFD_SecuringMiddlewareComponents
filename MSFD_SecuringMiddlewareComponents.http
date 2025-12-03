@@ -1,0 +1,6 @@
+@MSFD_SecuringMiddlewareComponents_HostAddress = http://localhost:5041
+
+GET {{MSFD_SecuringMiddlewareComponents_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

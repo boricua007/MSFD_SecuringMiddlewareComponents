@@ -1,0 +1,46 @@
+### Test 1: Basic Route Access (Bypasses Authentication Middleware)
+# Tests: Async Processing + Security Logging
+# Expected: 200 OK with success message
+GET http://localhost:5000/?secure=true
+
+###
+
+### Test 2: HTTPS Enforcement Success
+# Tests: HTTPS Enforcement + Authentication + Async Processing + Security Logging
+# Expected: 200 OK (all middleware passes)
+GET http://localhost:5000/api/data?secure=true&authenticated=true&input=validdata
+
+###
+
+### Test 3: HTTPS Enforcement Failure
+# Tests: HTTPS Enforcement Middleware (FAILS HERE)
+# Expected: 403 Forbidden - "Simulated HTTPS required."
+GET http://localhost:5000/api/data?authenticated=true
+
+###
+
+### Test 4: Unauthorized Path Access
+# Tests: HTTPS (pass) + Authentication (pass) + Path Authorization (FAILS HERE)
+# Expected: 401 Unauthorized - "Unauthorized Access."
+GET http://localhost:5000/unauthorized?secure=true&authenticated=true
+
+###
+
+### Test 5: Authentication Failure
+# Tests: HTTPS (pass) + Authentication Middleware (FAILS HERE)
+# Expected: 401 Unauthorized - "Authentication required."
+GET http://localhost:5000/api/secure?secure=true
+
+###
+
+### Test 6: Input Validation Failure
+# Tests: HTTPS (pass) + Authentication (pass) + Input Validation (FAILS HERE)
+# Expected: 400 Bad Request - "Invalid Input."
+GET http://localhost:5000/api/data?secure=true&authenticated=true&input=<script>alert('xss')</script>
+
+###
+
+### Test 7: All Middleware Components Pass
+# Tests: All middleware components successfully
+# Expected: 200 OK - demonstrates complete pipeline success
+GET http://localhost:5000/api/data?secure=true&authenticated=true&input=validinput
