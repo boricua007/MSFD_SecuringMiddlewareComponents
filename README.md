@@ -90,10 +90,10 @@ bool IsValidInput(string input)
 
 ## Learning Objectives
 
-• **Middleware Design:** Custom ASP.NET Core middleware components  
-• **Security Implementation:** Authentication, authorization, input validation  
-• **Pipeline Optimization:** Execution order and short-circuiting  
-• **Async Programming:** Non-blocking request handling  
+• **Middleware Design:** Custom ASP.NET Core middleware components
+• **Security Implementation:** Authentication, authorization, input validation
+• **Pipeline Optimization:** Execution order and short-circuiting
+• **Async Programming:** Non-blocking request handling
 • **MSFD Certification:** Security and middleware optimization competencies  
 
 ## Project Structure
@@ -117,12 +117,15 @@ MSFD_SecuringMiddlewareComponents/
 
 1. **Start the Application:** `dotnet run`
 2. **Test Security Middleware Components:**
+
    • Send valid requests with proper security parameters
    • Test HTTPS enforcement by omitting `secure=true`
    • Test authentication by omitting `authenticated=true`
    • Attempt XSS injection to verify input validation
    • Access `/unauthorized` route to test authorization
+
 3. **Study Security Pipeline:**
+
    • Examine `Program.cs` for security pipeline configuration
    • Understand short-circuiting behavior in security contexts
    • Test middleware execution sequence with security validations
@@ -135,16 +138,17 @@ MSFD_SecuringMiddlewareComponents/
 4. Build the application: `dotnet build`
 5. Run the application: `dotnet run`
 6. Test the security middleware pipeline:
+
    • Use the `request.http` file in VS Code with REST Client extension
    • Or use `curl` commands to test different security scenarios
    • Monitor console output for security middleware execution
 
 ## Key Concepts Demonstrated
 
-• **Security-First Middleware Pipeline:** Sequential execution with comprehensive security validation  
-• **Defense in Depth:** Multi-layer security checks before processing  
-• **Security Event Handling:** Appropriate HTTP status codes for different security failures  
-• **Async Security Operations:** Non-blocking security validation for better performance  
+• **Security-First Middleware Pipeline:** Sequential execution with comprehensive security validation
+• **Defense in Depth:** Multi-layer security checks before processing
+• **Security Event Handling:** Appropriate HTTP status codes for different security failures
+• **Async Security Operations:** Non-blocking security validation for better performance
 • **Security Monitoring:** Comprehensive logging and audit trail for security events  
 
 ## Test Scenarios
