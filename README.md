@@ -2,12 +2,6 @@
 
 .NET 9.0 Web Application demonstrating custom middleware design, security implementation, and pipeline optimization for the Microsoft Full Stack Developer certification.
 
-## Quick Start
-
-```bash
-dotnet run
-```
-
 ## Features
 
 ✅ **Custom Security Middleware Pipeline** - Sequential middleware components with comprehensive security validation  
